@@ -1,0 +1,78 @@
+# Notes – E-Farmer Subsidy Leakage Detection System
+
+These are working notes and observations collected during development.
+
+----------------------------------------------------
+GENERAL NOTES
+----------------------------------------------------
+• The solution must detect subsidy leakage BEFORE misuse happens.
+• E-Farmer ID (EFN) is the core of the system: identity + land + entitlement.
+• Aadhar and ration card integration will be conceptual only (for demo).
+• GIS/GPS verification will be simulated using metadata placeholders.
+
+----------------------------------------------------
+IDENTITY NOTES
+----------------------------------------------------
+• EFN format chosen: EFN-XXX-###### where XXX = district code.
+• Aadhaar shown in UI as masked (XXXX XXXX 1234).
+• Family ration card connection used to allow verified family members to claim.
+• Land details from tehsildar office stored inside farmer JSON.
+
+----------------------------------------------------
+ENTITLEMENT NOTES
+----------------------------------------------------
+• Entitlement must be calculated per acre per product type.
+• Crop type + rainfall zone decide entitlement value.
+• Dummy entitlement table used for hackathon.
+• “Max allowed = per-acre limit × farmer land size”.
+
+----------------------------------------------------
+DEALER NOTES
+----------------------------------------------------
+• Dealers log claims using EFN + product + quantity.
+• Dealers often over-report; rule-engine will catch over-limit claims.
+• Dealer ID will be added later for anomaly scoring.
+
+----------------------------------------------------
+FRAUD DETECTION NOTES
+----------------------------------------------------
+• Over-limit subsidy = biggest fraud pattern.
+• Suspicious dealer = unusually high number of farmers served.
+• Duplicate EFN = someone using the identity twice.
+• Clustered claims = ghost farmers created in groups.
+
+----------------------------------------------------
+AI MODULE NOTES
+----------------------------------------------------
+• Full ML model not required for hackathon.
+• Placeholder: land photo upload → return “verified/unverified”.
+• Future scope:
+  - Crop/soil classification
+  - GPS extraction
+  - Satellite image comparison
+  - Neighbour land cross-verification
+
+----------------------------------------------------
+UI NOTES
+----------------------------------------------------
+• Keep UI clean and simple.
+• Use card layout for E-Farmer ID.
+• Dashboard with graphs → optional but impressive.
+
+----------------------------------------------------
+GITHUB NOTES
+----------------------------------------------------
+• Commit often (every 30–60 minutes).
+• Use clear commit messages:
+  - “Added EFN registration form”
+  - “Dealer claim UI”
+  - “Fraud detection script”
+• README.md must be updated before final submission.
+
+----------------------------------------------------
+PITCH NOTES
+----------------------------------------------------
+• Focus on *problem → solution → fraud detection → AI verification*.
+• Highlight ghost farmer elimination + real-time monitoring.
+• Mention Aadhaar/ration card links as conceptual integration.
+• End with scalability + real-world impact.
