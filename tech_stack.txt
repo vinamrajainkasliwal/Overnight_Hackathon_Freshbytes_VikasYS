@@ -1,28 +1,52 @@
-Tech Stack 
+# Tech Stack – E-Farmer Subsidy Leakage Detection System
 
-Frontend
+----------------------------------------------------
+FRONTEND
+----------------------------------------------------
+• HTML  
+• CSS  
+• JavaScript  
 
-HTML
+Purpose:
+• User interface for farmer registration, dealer claims, and dashboard
+• Display E-Farmer ID card and fraud alerts
 
-CSS
+----------------------------------------------------
+BACKEND
+----------------------------------------------------
+• Python (Flask Framework)
 
-JavaScript
+Purpose:
+• Handle data storage, entitlement calculations, and fraud detection logic
+• Provide APIs for frontend communication
 
-Backend
+----------------------------------------------------
+DATABASE / STORAGE
+----------------------------------------------------
+• JSON & CSV files
 
-Python (Flask Framework)
+Used For:
+• Farmer registration data (farmers.json)
+• Dealer transaction logs (transactions.json)
+• Entitlement rule mapping (entitlement_rules.json)
+• Flagged suspicious cases (flagged_cases.json)
 
-Database / Storage
+----------------------------------------------------
+AI INTEGRATION (Prototype)
+----------------------------------------------------
+• Land photo upload with GPS metadata (mock verification)
+• Neighbor cross-verification concept
+• ML-based land & crop validation planned in future scope
 
-JSON & CSV files
-(for storing farmer registrations, dealer claims, and flagged anomalies)
+----------------------------------------------------
+DEV TOOLS
+----------------------------------------------------
+• GitHub – Version control, commits for each checkpoint, submission repository
+• Browser console – Quick testing of logged data
 
-AI Integration
-
-Land photo upload + GPS metadata verification (Prototype)
-
-Future Scope: ML-based land & crop validation
-
-Tools
-
-GitHub (Version control & submissions)
+----------------------------------------------------
+REASON FOR THIS STACK
+----------------------------------------------------
+• Simple and fast to build overnight
+• Easily demonstrates identity, entitlement & fraud detection flow
+• Allows us to simulate Aadhaar/GPS/ML integrations for hackathon
