@@ -1,0 +1,54 @@
+                   ┌──────────────┐
+                   │ Farmer Enters │
+                   │ Registration  │
+                   └───────┬──────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │ E-Farmer Profile│
+                  │  Created (EFN)  │
+                  └───────┬────────┘
+                           │
+         ┌─────────────────┴────────────────────┐
+         │                                      │
+         ▼                                      ▼
+┌───────────────────┐                   ┌───────────────────────┐
+│ Land Details      │                   │ Family Verification   │
+│ (GPS, Area, FMB)  │                   │ (Aadhaar + Ration)    │
+└─────────┬─────────┘                   └───────────┬──────────┘
+          │                                         │
+          └──────────────────────┬──────────────────┘
+                                 ▼
+                    ┌────────────────────┐
+                    │ Entitlement Engine │
+                    │ (Rules per Acre)   │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │ Dealer Logs Subsidy │
+                   │ (EFN + Quantity)    │
+                   └─────────┬───────────┘
+                             │
+                             ▼
+                ┌─────────────────────────────┐
+                │ Fraud Detection Engine       │
+                │ • Over-limit check           │
+                │ • Ghost farmer check         │
+                │ • Dealer anomaly detection   │
+                └──────────┬──────────────────┘
+                           │
+                           ▼
+               ┌─────────────────────────┐
+               │ Flagged Suspicious Case │
+               │ Stored in JSON/CSV      │
+               └──────────┬──────────────┘
+                          │
+                          ▼
+             ┌───────────────────────────────┐
+             │ Officer Dashboard              │
+             │ • Total farmers                │
+             │ • Total subsidies              │
+             │ • Suspicious cases             │
+             │ • Dealer anomalies             │
+             └───────────────────────────────┘
