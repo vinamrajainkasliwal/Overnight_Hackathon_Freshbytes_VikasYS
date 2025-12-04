@@ -1,0 +1,28 @@
+Tech Stack 
+
+Frontend
+
+HTML
+
+CSS
+
+JavaScript
+
+Backend
+
+Python (Flask Framework)
+
+Database / Storage
+
+JSON & CSV files
+(for storing farmer registrations, dealer claims, and flagged anomalies)
+
+AI Integration
+
+Land photo upload + GPS metadata verification (Prototype)
+
+Future Scope: ML-based land & crop validation
+
+Tools
+
+GitHub (Version control & submissions)
