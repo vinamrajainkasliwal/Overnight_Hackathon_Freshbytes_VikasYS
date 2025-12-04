@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Farmer ID – Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>E-Farmer ID Registration</h1>
+        <p class="subtitle">
+            Prototype for Agricultural Input Subsidy Leakage Detection
+        </p>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Register Farmer</h2>
+            <form id="farmerForm">
+                <div class="form-group">
+                    <label for="farmerName">Farmer Name</label>
+                    <input type="text" id="farmerName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="aadhaar">Aadhaar Number (Demo Only)</label>
+                    <input type="text" id="aadhaar" maxlength="12" minlength="4" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rationCard">Ration Card Number</label>
+                    <input type="text" id="rationCard" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="village">Village</label>
+                    <input type="text" id="village" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="district">District</label>
+                    <input type="text" id="district" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="landArea">Land Area (in acres)</label>
+                    <input type="number" step="0.01" id="landArea" required>
+                </div>
+
+                <button type="submit">Generate E-Farmer ID</button>
+            </form>
+        </section>
+
+        <section class="card-section">
+            <h2>E-Farmer Card Preview</h2>
+            <div id="cardPlaceholder" class="card empty">
+                <p>Fill the form and click "Generate E-Farmer ID" to see the card preview here.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>8th Mile x Overnight Hackathon &middot; Prototype – Not linked to real Aadhaar data</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
