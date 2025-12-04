@@ -1,0 +1,21 @@
+India spends over ₹70,000 crores every year on agricultural input subsidies such as fertilizers, seeds, and farming equipment. However, a significant portion of these subsidies does not reach genuine farmers due to widespread leakage and misuse.
+
+Subsidy leakage occurs because of:
+
+Ghost farmers created using fake identities or mismatched land records
+
+Black-market diversion where dealers supply subsidized materials to non-farmers
+
+Over-claiming subsidies by farmers with smaller landholdings than what is declared
+
+Manipulation of land documents and absence of real-time verification
+
+Lack of a unified, verified farmer identity, enabling duplication and fraud
+
+Delayed audits that detect issues only after the crop season is over
+
+Currently, the government has no centralized, intelligent system to authenticate farmers, verify land ownership, monitor subsidy distribution, or detect suspicious claim patterns across districts and dealers.
+
+Core Problem:
+
+India needs a real-time, verifiable, and intelligent subsidy monitoring system that links farmer identity, land records, and subsidy transactions — and can automatically detect anomalies and potential fraud before subsidies are misused.
