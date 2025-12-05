@@ -1,0 +1,22 @@
+[
+  {
+    "transactionId": "TXN-20251205-322167",
+    "efn": "EFN-RAI-35F2A7CE",
+    "dealerId": "D002",
+    "productType": "DAP",
+    "quantity": "7",
+    "unit": "kg",
+    "date": "2025-08-08",
+    "createdAt": "2025-12-05T05:26:29.934858"
+  },
+  {
+    "transactionId": "TXN-20251205-BB3D25",
+    "efn": "EFN-PON-4B35A84B",
+    "dealerId": "D002",
+    "productType": "DAP",
+    "quantity": "11",
+    "unit": "kg",
+    "date": "2025-12-05",
+    "createdAt": "2025-12-05T05:50:57.255368"
+  }
+]

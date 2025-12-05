@@ -1,0 +1,26 @@
+{
+  "en": {
+    "farmer_portal": "Farmer Portal",
+    "upload_images": "Upload Farm Images",
+    "standard_photo": "Standard Land Photo",
+    "corner_photo": "Corner / Left / Right Photo",
+    "submit": "Submit",
+    "image_status": "Image AI Status"
+  },
+  "hi": {
+    "farmer_portal": "किसान पोर्टल",
+    "upload_images": "खेत की तस्वीरें अपलोड करें",
+    "standard_photo": "स्टैंडर्ड खेत की फोटो",
+    "corner_photo": "कोने / बाएँ / दाएँ की फोटो",
+    "submit": "सबमिट",
+    "image_status": "छवि AI स्थिति"
+  },
+  "ta": {
+    "farmer_portal": "விவசாயி போர்டல்",
+    "upload_images": "பண்ணை படங்களை பதிவேற்றவும்",
+    "standard_photo": "நிலத்தின் சாதாரண படம்",
+    "corner_photo": "மூலை / இடது / வலது படம்",
+    "submit": "சமர்ப்பிக்கவும்",
+    "image_status": "பட AI நிலை"
+  }
+}

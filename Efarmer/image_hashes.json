@@ -1,0 +1,24 @@
+{
+  "ab00fc1e4b3ac277f4a56e81d09b7586024cf79568590ee38dde91e97fc9986a": [
+    {
+      "efn": "EFN-CHE-3E8C50DE",
+      "imageType": "standard"
+    },
+    {
+      "efn": "EFN-RAI-C9AD5892",
+      "imageType": "standard"
+    }
+  ],
+  "62544d3aac78daa265a7d5ecf822d8ea67e6edb56611f6cb51ce505e4d41ff62": [
+    {
+      "efn": "EFN-CHE-3E8C50DE",
+      "imageType": "corner"
+    }
+  ],
+  "741b87aab0f32f322253cef396a87bd3f876d37079d5d03cc80715ed409a1c3e": [
+    {
+      "efn": "EFN-RAI-C9AD5892",
+      "imageType": "corner"
+    }
+  ]
+}
