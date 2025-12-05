@@ -1,0 +1,48 @@
+{
+  "EFN-RAI-BF914688": {
+    "efn": "EFN-RAI-BF914688",
+    "farmerName": "sugnaan",
+    "aadhaar": "322212334",
+    "rationCard": "22323222",
+    "phone": "7845988933",
+    "village": "palampur",
+    "district": "raipur",
+    "landArea": "1.3",
+    "soilType": "Black",
+    "cropType": "Paddy",
+    "rainfallZone": "High",
+    "landLat": "",
+    "landLon": ""
+  },
+  "EFN-RAI-35F2A7CE": {
+    "efn": "EFN-RAI-35F2A7CE",
+    "farmerName": "sugnaan",
+    "aadhaar": "455545",
+    "rationCard": "22323222",
+    "phone": "7845988933",
+    "village": "palampur",
+    "district": "raipur",
+    "landArea": "11",
+    "soilType": "Laterite",
+    "cropType": "Paddy",
+    "rainfallZone": "High",
+    "landLat": "234",
+    "landLon": "77.45"
+  },
+  "EFN-PON-4B35A84B": {
+    "efn": "EFN-PON-4B35A84B",
+    "farmerName": "vinamra",
+    "aadhaar": "233546",
+    "rationCard": "4544342",
+    "phone": "7845988933",
+    "village": "pondi",
+    "district": "pondi",
+    "landArea": "112",
+    "soilType": "Black",
+    "cropType": "Paddy",
+    "rainfallZone": "High",
+    "landLat": "1213.4",
+    "landLon": "77.233",
+    "imageStatus": "Images Pending"
+  }
+}

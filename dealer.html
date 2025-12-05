@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>Dealer Subsidy Portal</h2>
+    <p class="muted">Enter the E-Farmer ID, verify identity (biometric – demo), and record subsidy issue. The system automatically checks entitlement and flags fraud.</p>
+    <form method="post">
+        <div>
+            <label>E-Farmer ID (EFN)</label><br>
+            <input name="efn" placeholder="EFN-XXX-1234ABCD" required>
+        </div>
+        <div>
+            <label>Dealer ID</label><br>
+            <select name="dealerId">
+                {% for d in dealers %}
+                <option value="{{ d.dealerId }}">{{ d.dealerId }} – {{ d.dealerName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Product Type</label><br>
+            <select name="productType">
+                <option>Urea</option>
+                <option>DAP</option>
+                <option>Seeds</option>
+            </select>
+        </div>
+        <div>
+            <label>Quantity</label><br>
+            <input type="number" name="quantity" step="0.1" required>
+        </div>
+        <div>
+            <label>Unit</label><br>
+            <select name="unit">
+                <option>kg</option>
+                <option>bags</option>
+            </select>
+        </div>
+        <div>
+            <label>Date</label><br>
+            <input type="date" name="date">
+        </div>
+        <button type="submit">Issue Subsidy (Biometric Verified – Demo)</button>
+    </form>
+</div>
+
+{% if message %}
+<div class="card">
+    <h3>Transaction Status</h3>
+    <p>{{ message }}</p>
+    {% if txn_code %}
+        <p><strong>Transaction Code:</strong> <span class="pill">{{ txn_code }}</span></p>
+    {% endif %}
+    {% if risk_info %}
+        {% if risk_info.status == "Suspicious" %}
+            <p><span class="pill pill-danger">Risk: {{ risk_info.status }}</span></p>
+        {% else %}
+            <p><span class="pill pill-success">Risk: {{ risk_info.status }}</span></p>
+        {% endif %}
+        <p class="muted">{{ risk_info.reason }}</p>
+    {% endif %}
+</div>
+{% endif %}
+
+{% if farmer_preview %}
+<div class="card">
+    <h3>Farmer Snapshot (for Dealer)</h3>
+    <p><strong>Name:</strong> {{ farmer_preview.farmerName }}</p>
+    <p><strong>Village:</strong> {{ farmer_preview.village }}, {{ farmer_preview.district }}</p>
+    <p><strong>Land Area:</strong> {{ farmer_preview.landArea }} acres</p>
+    <p><strong>Crop:</strong> {{ farmer_preview.cropType }}</p>
+</div>
+{% endif %}
+{% endblock %}

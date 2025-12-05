@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>Admin Dashboard</h2>
+    <p><strong>Total Farmers:</strong> {{ total_farmers }}</p>
+    <p><strong>Total Transactions:</strong> {{ total_txns }}</p>
+    <p><strong>Flagged Fraud Cases:</strong> {{ total_flagged }}</p>
+    <p class="muted">Use this panel to monitor subsidy usage, dealer activity, fraud alerts, and AI image verification status.</p>
+</div>
+
+<div class="card">
+    <h3>Dealer Activity (Number of Transactions)</h3>
+    {% if dealer_counts %}
+        <ul>
+            {% for did, count in dealer_counts.items() %}
+            <li>{{ did }} – {{ count }} transactions</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="muted">No dealer transactions yet.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>Flagged Fraud Cases</h3>
+    {% if flagged_cases %}
+        <ul>
+        {% for c in flagged_cases %}
+            <li>
+                <span class="pill pill-danger">{{ c.caseId }}</span><br>
+                EFN: {{ c.efn }} – Dealer: {{ c.dealerId }}<br>
+                Reason: {{ c.reason }} ({{ c.severity }})<br>
+                <span class="muted">Time: {{ c.timestamp }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="muted">No suspicious cases yet.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h3>All Farmers (Excel-style view)</h3>
+    <label>Search by name / EFN / village:</label><br>
+    <input id="farmerSearch" placeholder="Type to filter table...">
+    <br><br>
+    <div style="max-height:300px; overflow:auto;">
+    <table id="farmerTable" style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+        <thead>
+            <tr style="background:#020617;">
+                <th style="border-bottom:1px solid #1f2937; text-align:left; padding:4px;">Name</th>
+                <th style="border-bottom:1px solid #1f2937; text-align:left; padding:4px;">EFN</th>
+                <th style="border-bottom:1px solid #1f2937; text-align:left; padding:4px;">Village</th>
+                <th style="border-bottom:1px solid #1f2937; text-align:left; padding:4px;">District</th>
+                <th style="border-bottom:1px solid #1f2937; text-align:left; padding:4px;">Land (acres)</th>
+                <th style="border-bottom:1px solid #1f2937; text-align:left; padding:4px;">Crop</th>
+                <th style="border-bottom:1px solid #1f2937; text-align:left; padding:4px;">Image AI Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in farmers %}
+            <tr>
+                <td style="border-bottom:1px solid #111827; padding:4px;">{{ f.farmerName }}</td>
+                <td style="border-bottom:1px solid #111827; padding:4px;">{{ f.efn }}</td>
+                <td style="border-bottom:1px solid #111827; padding:4px;">{{ f.village }}</td>
+                <td style="border-bottom:1px solid #111827; padding:4px;">{{ f.district }}</td>
+                <td style="border-bottom:1px solid #111827; padding:4px;">{{ f.landArea }}</td>
+                <td style="border-bottom:1px solid #111827; padding:4px;">{{ f.cropType }}</td>
+                <td style="border-bottom:1px solid #111827; padding:4px;">
+                    {% if f.imageStatus %}
+                        {{ f.imageStatus }}
+                    {% else %}
+                        Images Pending
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <p class="muted">This table behaves like a simple Excel view. The last column shows the AI/image verification status for each farmer.</p>
+</div>
+
+<script>
+    const searchInput = document.getElementById('farmerSearch');
+    const table = document.getElementById('farmerTable');
+    const rows = table.getElementsByTagName('tr');
+
+    searchInput.addEventListener('keyup', function () {
+        const filter = this.value.toLowerCase();
+        for (let i = 1; i < rows.length; i++) { // skip header row
+            const rowText = rows[i].innerText.toLowerCase();
+            rows[i].style.display = rowText.includes(filter) ? '' : 'none';
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>Server Entry – Register Farmer</h2>
+    <p class="muted">This page is used by government staff to create verified E-Farmer IDs (EFN) with land & identity details.</p>
+    <form method="post">
+        <div>
+            <label>Farmer Name</label><br>
+            <input name="farmerName" required>
+        </div>
+        <div>
+            <label>Aadhaar (demo only)</label><br>
+            <input name="aadhaar" required>
+        </div>
+        <div>
+            <label>Ration Card Number</label><br>
+            <input name="rationCard" required>
+        </div>
+        <div>
+            <label>Phone</label><br>
+            <input name="phone" required>
+        </div>
+        <div>
+            <label>Village</label><br>
+            <input name="village" required>
+        </div>
+        <div>
+            <label>District</label><br>
+            <input name="district" required>
+        </div>
+        <div>
+            <label>Land Area (acres)</label><br>
+            <input name="landArea" type="number" step="0.01" required>
+        </div>
+        <div>
+            <label>Soil Type</label><br>
+            <select name="soilType">
+                <option>Black</option>
+                <option>Red</option>
+                <option>Alluvial</option>
+                <option>Laterite</option>
+            </select>
+        </div>
+        <div>
+            <label>Main Crop Type</label><br>
+            <select name="cropType">
+                <option>Paddy</option>
+                <option>Wheat</option>
+                <option>Cotton</option>
+                <option>Millets</option>
+            </select>
+        </div>
+        <div>
+            <label>Rainfall Zone</label><br>
+            <select name="rainfallZone">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+        </div>
+        <div>
+            <label>Land GPS (Latitude) – demo</label><br>
+            <input name="landLat" placeholder="e.g. 12.9716">
+        </div>
+        <div>
+            <label>Land GPS (Longitude) – demo</label><br>
+            <input name="landLon" placeholder="e.g. 77.5946">
+        </div>
+        <button type="submit">Generate E-Farmer ID</button>
+    </form>
+</div>
+
+{% if farmer %}
+<div class="card">
+    <h3>E-Farmer Card Created ✅</h3>
+    <p><span class="pill pill-success">New EFN</span></p>
+    <p><strong>EFN:</strong> {{ farmer.efn }}</p>
+    <p><strong>Name:</strong> {{ farmer.farmerName }}</p>
+    <p><strong>Village:</strong> {{ farmer.village }}, {{ farmer.district }}</p>
+    <p><strong>Land Area:</strong> {{ farmer.landArea }} acres</p>
+    <p><strong>Crop:</strong> {{ farmer.cropType }} | <strong>Rainfall Zone:</strong> {{ farmer.rainfallZone }}</p>
+    <p class="muted">Farmer portal URL: <code>/farmer/{{ farmer.efn }}</code></p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+[
+  { "cropType": "Paddy",  "rainfallZone": "High",   "productType": "Urea", "maxPerAcre": 80 },
+  { "cropType": "Paddy",  "rainfallZone": "Medium", "productType": "Urea", "maxPerAcre": 70 },
+  { "cropType": "Wheat",  "rainfallZone": "Medium", "productType": "Urea", "maxPerAcre": 60 },
+  { "cropType": "Cotton", "rainfallZone": "Low",    "productType": "Urea", "maxPerAcre": 50 },
+  { "cropType": "Millets","rainfallZone": "Low",    "productType": "Urea", "maxPerAcre": 40 }
+]

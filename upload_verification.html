@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>AI Land & Neighbour Verification (Prototype)</h2>
+    <p class="muted">
+        This simulates an AI model that checks whether a farmer is actually at their registered land,
+        and whether neighbours validate their claim. In a real system, GPS from photos and satellite maps
+        would be used here.
+    </p>
+    <form method="post">
+        <div>
+            <label>Your EFN</label><br>
+            <input name="efn" required>
+        </div>
+        <div>
+            <label>Neighbour's EFN</label><br>
+            <input name="neighbourEfn" required>
+        </div>
+        <div>
+            <label>Current GPS Latitude (demo)</label><br>
+            <input name="gpsLat" placeholder="e.g. 12.9718">
+        </div>
+        <div>
+            <label>Current GPS Longitude (demo)</label><br>
+            <input name="gpsLon" placeholder="e.g. 77.5940">
+        </div>
+        <button type="submit">Run AI Verification (Demo)</button>
+    </form>
+</div>
+
+{% if result %}
+<div class="card">
+    <h3>AI Result (Simulated)</h3>
+    <p><strong>GPS Match:</strong> {{ result.gpsMatch }}</p>
+    <p><strong>Neighbour Verified:</strong> {{ result.neighbourVerified }}</p>
+    <p><strong>AI Risk Score:</strong>
+        {% if result.riskScore == "Low" %}
+            <span class="pill pill-success">{{ result.riskScore }}</span>
+        {% elif result.riskScore == "High" %}
+            <span class="pill pill-danger">{{ result.riskScore }}</span>
+        {% else %}
+            <span class="pill">{{ result.riskScore }}</span>
+        {% endif %}
+    </p>
+    <p class="muted">This risk score can be fed into the fraud engine to prioritize physical inspections.</p>
+</div>
+{% endif %}
+{% endblock %}

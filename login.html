@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    {% if role == "admin" %}
+        <h2>Admin Login</h2>
+        <p class="muted">Use username <code>fam1</code> and password <code>fam1</code> (demo).</p>
+        <form method="post">
+            <label>Username</label><br>
+            <input name="username" required><br>
+            <label>Password</label><br>
+            <input name="password" type="password" required><br>
+            <button type="submit">Login as Admin</button>
+        </form>
+    {% elif role == "dealer" %}
+        <h2>Dealer Login</h2>
+        <p class="muted">Use username <code>fam1</code> and password <code>fam1</code>. Then select which dealer ID you are using.</p>
+        <form method="post">
+            <label>Username</label><br>
+            <input name="username" required><br>
+            <label>Password</label><br>
+            <input name="password" type="password" required><br>
+            <label>Dealer ID</label><br>
+            <select name="dealerId">
+                {% for d in dealers %}
+                <option value="{{ d.dealerId }}">{{ d.dealerId }} – {{ d.dealerName }}</option>
+                {% endfor %}
+            </select><br>
+            <button type="submit">Login as Dealer</button>
+        </form>
+    {% elif role == "farmer" %}
+        <h2>Farmer Login</h2>
+        <p class="muted">Enter your E-Farmer Number (EFN) and password <code>fam1</code>.</p>
+        <form method="post">
+            <label>E-Farmer Number (EFN)</label><br>
+            <input name="efn" required><br>
+            <label>Password</label><br>
+            <input name="password" type="password" required><br>
+            <button type="submit">Login as Farmer</button>
+        </form>
+    {% endif %}
+
+    {% if error %}
+        <p style="color:#fca5a5; margin-top:0.8rem;">{{ error }}</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>Farmer Portal – {{ farmer.farmerName }}</h2>
+    <p><span class="pill">EFN: {{ farmer.efn }}</span></p>
+    <p><strong>Location:</strong> {{ farmer.village }}, {{ farmer.district }}</p>
+    <p><strong>Land Area:</strong> {{ farmer.landArea }} acres</p>
+    <p><strong>Soil Type:</strong> {{ farmer.soilType }}</p>
+    <p><strong>Crop Type:</strong> {{ farmer.cropType }}</p>
+    <p><strong>Rainfall Zone:</strong> {{ farmer.rainfallZone }}</p>
+    <p><strong>Image AI Status:</strong> {{ farmer.imageStatus or "Images Pending" }}</p>
+</div>
+
+<div class="card">
+    <h3>Subsidy Entitlement (Rule Engine)</h3>
+    <p>Maximum Urea allowed this season based on your land & crop:</p>
+    <p style="font-size:1.4rem;"><strong>{{ max_urea }} kg</strong></p>
+    <p class="muted">Calculated using per-acre limits for your crop and rainfall zone.</p>
+</div>
+
+<div class="card">
+    <h3>AI Subsidy Eligibility Suggestions</h3>
+    <ul>
+        {% for s in ai_schemes %}
+        <li>
+            <strong>{{ s.name }}</strong><br>
+            <span class="pill">{{ s.status }}</span><br>
+            <span class="muted">{{ s.reason }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Upload Farm Images (for AI neighbourhood check)</h3>
+    <p class="muted">Upload: (1) a standard photo from your land, and (2) a corner/side photo (e.g., top-left of your field). Admin will use this for AI verification.</p>
+    <form method="post" action="{{ url_for('upload_farmer_images', efn=farmer.efn) }}" enctype="multipart/form-data">
+        <label>Standard Land Photo</label><br>
+        <input type="file" name="standardImage" accept="image/*"><br>
+        <label>Corner / Left / Right Photo</label><br>
+        <input type="file" name="cornerImage" accept="image/*"><br>
+        <button type="submit">Upload Images</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Nearest Subsidy Collection Center</h3>
+    <p>{{ nearest_center }}</p>
+</div>
+
+<div class="card">
+    <h3>Farmer Laws & Schemes</h3>
+    <p>Important information about farmer rights and schemes:</p>
+    <a href="{{ laws_link }}" target="_blank">Open Agriculture Laws & Schemes</a>
+</div>
+{% endblock %}
